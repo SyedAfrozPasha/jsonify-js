@@ -1,2 +1,189 @@
 # jsonify-js
-A simple JSON handler without any dependency
+
+A simple and light-weight JSON handler with zero dependencies. It provide promised version of the JSON built-in methods such as `JSON.Stringify` and `JSON.parse`.
+
+## Installation
+
+```bash
+npm install jsonify-js
+```
+
+## Usage
+
+You can use the `JSONStringify` and `JSONParse` methods using Promise or Async/Await syntax.
+
+### Using Promise Syntax
+
+- `JSONStringify` - Converts the js object into stringified JSON.
+
+  ```javascript
+  const { JSONStringify } = require('jsonify-js')
+
+  const user = {
+    name: 'John',
+    age: 30,
+    city: 'New York',
+  }
+
+  JSONStringify(user)
+    .then((result) => {
+      console.log(result)
+      // Handle the stringified result
+    })
+    .catch((error) => {
+      // Handler error
+      console.error(error)
+    })
+  ```
+
+- `JSONParse` - Converts the stringified JSON into js object.
+
+  ```javascript
+  const { JSONParse } = require('jsonify-js')
+
+  const stringifiedData = '{"name":"John","age":30,"city":"New York"}'
+
+  JSONParse(stringifiedData)
+    .then((result) => {
+      // Handle the JSON parse result
+      console.log(result)
+    })
+    .catch((error) => {
+      // Handler error
+      console.error(error)
+    })
+  ```
+
+### Using Async/Await Syntax
+
+- `JSONStringify` - Converts the js object into stringified JSON.
+
+  ```javascript
+  const { JSONStringify } = require('jsonify-js')
+
+  const getStringifiedData = async () => {
+    try {
+      const user = {
+        name: 'John',
+        age: 30,
+        city: 'New York',
+      }
+
+      const stringifiedData = await JSONStringify(user)
+
+      return stringifiedData
+    } catch (err) {
+      // Handler error
+      console.error(err)
+    }
+  }
+  const main = async () => {
+    const result = await getStringifiedData()
+    console.log('Result:', result)
+  }
+
+  main()
+  ```
+
+- `JSONParse` - Converts the stringified JSON into js object.
+
+  ```javascript
+  const { JSONParse } = require('jsonify-js')
+
+  const getParsedData = async () => {
+    try {
+      const stringifiedData = '{"name":"John","age":30,"city":"New York"}'
+
+      const parsedData = await JSONParse(stringifiedData)
+
+      return parsedData
+    } catch (err) {
+      // Handler error
+      console.error(err)
+    }
+  }
+  const main = async () => {
+    const result = await getParsedData()
+    console.log('Result:', result)
+  }
+
+  main()
+  ```
+
+### JSON logger
+
+- `JSONLogger` - Can be used to log the JSON data to a JSON file.
+
+  ```javascript
+  const { JSONLogger } = require('jsonify-js')
+
+  const user = {
+    name: 'John',
+    age: 30,
+    city: 'New York',
+  }
+
+  // Save the stringified data in a JSON file
+  JSONLogger({ data: user, space: 2 })
+  ```
+
+## Documentation
+
+### JSONStringify
+
+`JSONStringify` works similar to the build-in JSON method `JSON.stringify`. You can also pass the optional parameters such as `replacer` or `space`.
+
+#### Syntax
+
+```javascript
+JSONStringify(value)
+JSONStringify(value, replacer)
+JSONStringify(value, replacer, space)
+```
+
+Read more about the optional parameters <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank">here</a>
+
+### JSONParse
+
+`JSONParse` works similar to the build-in JSON method `JSON.parse`. You can also pass the optional parameters `reviver`.
+
+#### Syntax
+
+```javascript
+JSONParse(text)
+JSONParse(text, reviver)
+```
+
+Read more about the optional parameters <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank">here</a>
+
+### JSONLogger
+
+`JSONLogger` can be used to log the JSON data into a JSON file.
+
+#### Syntax
+
+```javascript
+JSONLogger({
+  data,
+  filePath,
+  replacer,
+  space,
+  writeFileOption,
+  customSuccessMessage,
+})
+```
+
+**Parameters:**
+
+- `data` _(required)_: Data as js object or array.
+- `filePath` _(optional)_: Location of the JSON file where you want to log/save the data. Default value is set to `./log.json`.
+- `replacer` _(optional)_: You can use the custom replacer function. Default value is `null`. Refer the [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) for more details.
+- `space` _(optional)_: You can pass in the space value in number. `space = 2` means normal space and `space = 4` means tab space. Refer the [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) for more details.
+- `fileWriteOptions` _(optional)_: Refer the [here](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback) for more details. Default value is set to `utf8`.
+- `customSuccessMessage` _(optional)_: You can pass the custom success message on completion of logging. Default value is set to `jsonify-js: Log file has been created!`.
+
+## License
+
+Licensed under MIT
+
+Copyright (c) 2021 [Syed Afroz Pasha](https://github.com/SyedAfrozPasha)
