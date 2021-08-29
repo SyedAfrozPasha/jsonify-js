@@ -1,4 +1,5 @@
-const { JSONStringify } = require('../dist/index');
+// const { JSONStringify } = require('jsonify-js');
+const { JSONStringify } = require('../../src/index');
 
 const user = {
   name: 'John',

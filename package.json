@@ -1,7 +1,7 @@
 {
   "name": "jsonify-js",
-  "version": "0.1.0",
-  "description": "A simple JSON handler with zero dependencies",
+  "version": "0.6.0",
+  "description": "A simple and light-weight JSON handler with promise support",
   "main": "index.js",
   "scripts": {
     "start": "npm run build && node ./dist/app.js",
@@ -17,9 +17,17 @@
     "url": "git+https://github.com/SyedAfrozPasha/jsonify-js.git"
   },
   "keywords": [
-    "JSON",
-    "Javascript",
-    "Nodejs"
+    "json",
+    "parse",
+    "stringify",
+    "promise",
+    "async",
+    "await",
+    "logger",
+    "file",
+    "error",
+    "handler",
+    "format"
   ],
   "author": "Syed Afroz Pasha",
   "license": "MIT",
@@ -33,5 +41,8 @@
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "prettier": "2.3.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.15.3"
   }
 }

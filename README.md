@@ -1,6 +1,6 @@
-# jsonify-js
+# jsonify-js - JSON with Promise Support
 
-A simple and light-weight JSON handler with zero dependencies. It provide promised version of the JSON built-in methods such as `JSON.Stringify` and `JSON.parse`.
+A simple and light-weight JSON handler with promise support. It provide promised version of the JSON built-in methods such as `JSON.Stringify` and `JSON.parse`. It also had an utility method (`JSONLogger`) to log the JSON data on to a JSON file.
 
 ## Installation
 
@@ -10,11 +10,11 @@ npm install jsonify-js
 
 ## Usage
 
-You can use the `JSONStringify` and `JSONParse` methods using Promise or Async/Await syntax.
+You can use the `JSONStringify` and `JSONParse` methods using Promises or Async/Await syntax.
 
 ### Using Promise Syntax
 
-- `JSONStringify` - Converts the js object into stringified JSON.
+- `JSONStringify` - Converts the js object/array into stringified JSON.
 
   ```javascript
   const { JSONStringify } = require('jsonify-js')
@@ -36,7 +36,7 @@ You can use the `JSONStringify` and `JSONParse` methods using Promise or Async/A
     })
   ```
 
-- `JSONParse` - Converts the stringified JSON into js object.
+- `JSONParse` - Converts the stringified JSON into js object/array.
 
   ```javascript
   const { JSONParse } = require('jsonify-js')
@@ -124,7 +124,7 @@ You can use the `JSONStringify` and `JSONParse` methods using Promise or Async/A
   }
 
   // Save the stringified data in a JSON file
-  JSONLogger({ data: user, space: 2 })
+  JSONLogger({ data: user, space: 2, filePath = './log.json' })
   ```
 
 ## Documentation
@@ -175,13 +175,16 @@ JSONLogger({
 
 **Parameters:**
 
-- `data` _(required)_: Data as js object or array.
-- `filePath` _(optional)_: Location of the JSON file where you want to log/save the data. Default value is set to `./log.json`.
-- `replacer` _(optional)_: You can use the custom replacer function. Default value is `null`. Refer the [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) for more details.
-- `space` _(optional)_: You can pass in the space value in number. `space = 2` means normal space and `space = 4` means tab space. Refer the [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) for more details.
-- `fileWriteOptions` _(optional)_: Refer the [here](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback) for more details. Default value is set to `utf8`.
-- `customSuccessMessage` _(optional)_: You can pass the custom success message on completion of logging. Default value is set to `jsonify-js: Log file has been created!`.
+- `data` _(required)_: Data in `object` or `array` format.
+- `filePath` _(optional)_: Location/Path of the JSON file where you want to log/save the data. Default value is set to `./log.json`.
+- `replacer` _(optional)_: You can use the custom replacer function. Default value is `null`. Refer [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) for more details.
+- `space` _(optional)_: You can pass in the space value in number. `space = 2` means normal space and `space = 4` means tab space. Refer [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) for more details.
+- `fileWriteOptions` _(optional)_: Refer [this](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback) for more details. Default value is set to `utf8`.
+- `customSuccessMessage` _(optional)_: You can pass the custom message which will be displayed on console on completion of logging. Default value is set to `jsonify-js: Log file has been created!`.
 
+## Examples
+
+Refer [this](https://github.com/SyedAfrozPasha/jsonify-js/tree/main/example) for more examples
 ## License
 
 Licensed under MIT
