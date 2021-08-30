@@ -6,8 +6,7 @@
   "scripts": {
     "copy": "node copyToDist.js",
     "build": "webpack && npm run copy",
-    "format": "npx prettier --write ./src/*",
-    "publish": "git push --tags && cd dist && npm publish"
+    "format": "npx prettier --write ./src/*"
   },
   "repository": {
     "type": "git",
