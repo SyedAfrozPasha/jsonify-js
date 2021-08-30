@@ -2,7 +2,7 @@
   "name": "jsonify-js",
   "version": "1.0.0",
   "description": "A simple and light-weight JSON handler with promise support",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "copy": "node copyToDist.js",
     "build": "webpack && npm run copy",
