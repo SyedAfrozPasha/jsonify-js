@@ -9,4 +9,4 @@ const JSONStringify = (data, replacer = null, space = null) => {
   });
 };
 
-module.exports = JSONStringify;
+export default JSONStringify;

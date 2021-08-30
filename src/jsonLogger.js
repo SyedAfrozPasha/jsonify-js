@@ -1,7 +1,5 @@
-const { writeFile } = require('fs');
-const { join } = require('path');
-
-const JSONStringify = require(join(__dirname, 'jsonStringify'));
+import fs from 'fs';
+import JSONStringify from './jsonStringify';
 
 const JSONLogger = async ({
   data,
@@ -18,7 +16,7 @@ const JSONLogger = async ({
 
     const stringifyData = await JSONStringify(data, replacer, space);
 
-    writeFile(filePath, stringifyData, fileWriteOptions, (err) => {
+    fs.writeFile(filePath, stringifyData, fileWriteOptions, (err) => {
       if (err) {
         throw err;
       }
@@ -29,4 +27,4 @@ const JSONLogger = async ({
   }
 };
 
-module.exports = JSONLogger;
+export default JSONLogger;

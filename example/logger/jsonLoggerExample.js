@@ -1,5 +1,4 @@
-// const { JSONLogger } = require('jsonify-js');
-const { JSONLogger } = require('../../src/index');
+const { JSONLogger } = require('jsonify-js');
 
 const user = {
   name: 'John',

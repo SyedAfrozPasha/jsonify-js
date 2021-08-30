@@ -1,5 +1,4 @@
-// const { JSONParse } = require('jsonify-js');
-const { JSONParse } = require('../../src/index');
+const { JSONParse } = require('jsonify-js');
 
 const getParsedData = async () => {
   try {

@@ -9,4 +9,4 @@ const JSONParse = (data, reviver = null) => {
   });
 };
 
-module.exports = JSONParse;
+export default JSONParse;

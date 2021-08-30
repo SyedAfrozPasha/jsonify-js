@@ -1,5 +1,4 @@
-// const { JSONParse } = require('jsonify-js');
-const { JSONParse } = require('../../src/index');
+const { JSONParse } = require('jsonify-js');
 
 const stringifiedData = '{"name":"John","age":30,"city":"New York"}';
 

@@ -1,11 +1,5 @@
-const { join } = require('path');
+import JSONStringify from './jsonStringify';
+import JSONParse from './jsonParse';
+import JSONLogger from './jsonLogger';
 
-const JSONStringify = require(join(__dirname, 'jsonStringify'));
-const JSONParse = require(join(__dirname, 'jsonParse'));
-const JSONLogger = require(join(__dirname, 'jsonLogger'));
-
-module.exports = {
-  JSONStringify,
-  JSONParse,
-  JSONLogger,
-};
+export { JSONStringify, JSONParse, JSONLogger };
